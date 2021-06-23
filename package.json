@@ -1,11 +1,25 @@
 {
-  "name": "hardhat-project",
+  "name": "subgraph-workshop",
+  "version": "1.0.0",
   "license": "MIT",
+  "private": true,
+  "scripts": {
+    "format": "prettier --ignore-path .gitignore --write \"{*,**/*}.{ts,tsx,js,jsx,json,md,sol}\""
+  },
+  "workspaces": {
+    "nohoist": [
+      "**/@graphprotocol/graph-ts",
+      "**/@graphprotocol/graph-ts/**"
+    ],
+    "packages": [
+      "packages/*"
+    ]
+  },
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
-    "@openzeppelin/contracts": "^4.1.0",
-    "ethers": "^5.3.1",
-    "hardhat": "^2.4.0",
-    "prettier": "^2.3.1"
+    "prettier": "^2.3.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.13"
+  },
+  "resolutions": {
+    "assemblyscript": "git+https://github.com/AssemblyScript/assemblyscript.git#v0.6"
   }
 }
